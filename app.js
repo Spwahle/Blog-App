@@ -23,11 +23,9 @@ let Blog = mongoose.model('Blog', blogSchema);
 
 //RESTFUL ROUTES
 
-Blog.create({
-    title: 'Test Blog',
-    image: 'https://unsplash.com/photos/6yiq2HPIW7Q',
-    body: 'HELLO THIS A BLOG THINGER',
-});
+app.get('/blogs', function(req, res) {
+    res.render('index');
+})
 
 
 
