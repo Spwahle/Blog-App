@@ -23,9 +23,20 @@ let Blog = mongoose.model('Blog', blogSchema);
 
 //RESTFUL ROUTES
 
+app.get('/', function(req, res) {
+    res.render('blogs');
+});
+
+
 app.get('/blogs', function(req, res) {
-    res.render('index');
-})
+    Blog.find({}, function(err, blogs) {
+        if (err) {
+            console.log("error!")
+        } else {
+            res.render('index', { blogs: blogs });
+        }
+    });
+});
 
 
 
